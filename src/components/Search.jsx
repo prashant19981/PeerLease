@@ -7,16 +7,50 @@ function Search(){
       room: ''
     })
 
-    const clickSearch = () => {
+    function handleChange(event) {
+      const{name,value} = event.target;
+      setFormValues ( prevData =>{
+        return {
+          ...prevData,
+          [name]: value
+        }
+        
+      });
+      console.log(formValues)
+    }
+
+    function clickSearch () {
       console.log("Search clicked")
 
     }
     return (
         <div>
           <form>
-            <input type='text' name = 'city' value = {formValues.city} placeholder='Select City'></input>
-            <input type='text' name ='university' value = {formValues.university} placeholder='Select University'></input>
-            <input type='text' name = 'room' value = {formValues.room} placeholder='Select Room type'></input>
+            <input 
+              type='text' 
+              name = 'city' 
+              value = {formValues.city} 
+              placeholder='Select City'
+              onChange={handleChange}>
+            
+            </input>
+            <input 
+              type='text' 
+              name ='university' 
+              value = {formValues.university} 
+              placeholder='Select University'
+              onChange={handleChange}
+            >
+
+            </input>
+            <input 
+            type='text' 
+            name = 'room' 
+            value = {formValues.room} 
+            placeholder='Select Room type'
+            onChange={handleChange}>
+
+            </input>
             <button 
               class="btn btn-primary" 
               type="submit"
