@@ -16,11 +16,12 @@ function Search(){
         }
         
       });
-      console.log(formValues)
+      
     }
 
     function clickSearch () {
       console.log("Search clicked")
+      console.log(formValues)
 
     }
     return (
@@ -52,7 +53,7 @@ function Search(){
 
             </input>
             <button 
-              class="btn btn-primary" 
+              className="btn btn-primary" 
               type="submit"
               onClick={clickSearch}
               >Search

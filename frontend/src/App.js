@@ -6,11 +6,12 @@ import Search from './components/Search';
 function App() {
   return (
     <div className="App">
-      <body>
-        <Search></Search>
-
-      </body>
+      <Search></Search>
     </div>
+    
+      
+
+    
   );
 }
 
