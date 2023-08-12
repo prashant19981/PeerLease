@@ -1,0 +1,26 @@
+.loginContainer{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+
+}
+.loginBox{
+    max-width: 100%;
+    display: inline-block;
+    /* margin: 20px; */
+    box-shadow: 0 0 5px 5px rgb(181, 180, 180);
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+.loginBox input{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loginButton{
+    margin-bottom: 10px;
+}

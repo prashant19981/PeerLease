@@ -18,7 +18,27 @@ const UsersSchema = new mongoose.Schema({
     isSeller:{
         type: Boolean,
         default:false
-    }
+    },
+    interestedProperty:[{
+        property:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'Properties'
+        },
+        approved:{
+            type: Boolean,
+            default: false
+        }
+    }],
+    myProperty:[{
+        property:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'Properties'
+        },
+        approved:{
+            type: Boolean,
+            default: false
+        }
+    }]
 
 
 

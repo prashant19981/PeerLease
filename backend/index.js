@@ -9,6 +9,9 @@ import searchRoute from "./routes/search.js"
 import authRoute from "./routes/auth.js"
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+
 dotenv.config()
 
 // const publicPath = path.join(__dirname,'../frontend/build');
@@ -28,14 +31,17 @@ const connection = async () => {
 mongoose.connection.on("disconnected",()=>{
     console.log("Disconnected from the Database")
 })
+app.use(cors({origin:'http://localhost:3001',credentials: true}));
+app.use(express.json());
+app.use(cookieParser());
+app.use("/auth",authRoute);
+app.use("/users",userRoute);
+app.use("/accom",accommodationRoute);
+app.use("/listing",listingRoute);
+app.use("/properties",propertiesRoute);
+app.use("/search",searchRoute);
 
-app.use(express.json())
-app.use("/auth",authRoute)
-app.use("/users",userRoute)
-app.use("/accom",accommodationRoute)
-app.use("/listing",listingRoute)
-app.use("/properties",propertiesRoute)
-app.use("/search",searchRoute)
+
 // app.use(express.static(publicPath));
 
 app.get('/',(req,res) =>{

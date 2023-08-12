@@ -1,0 +1,24 @@
+
+.srImg{
+    width: 347px;
+    height: 178px;
+    /* height: auto; */
+    margin: 10px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.srInfo{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.detailsContainer{
+    max-width: 100%;
+    display: inline-block;
+    margin: 20px;
+    box-shadow: 0 0 5px 5px rgb(181, 180, 180);
+    border-radius: 5px;
+    cursor: pointer;
+   
+}

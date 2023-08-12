@@ -1,0 +1,14 @@
+.mypropertyContainer{
+    max-width: 80%;
+    display: flex;
+    margin: 20px;
+    box-shadow: 0 0 5px 5px rgb(181, 180, 180);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.propertyInfo{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

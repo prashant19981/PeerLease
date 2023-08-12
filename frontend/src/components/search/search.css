@@ -1,0 +1,22 @@
+.search-bar{
+    margin-top: 10px;
+    display: flex; 
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    max-width: 1024px;
+    margin: auto;
+    border: 2px solid rgb(193, 184, 22);
+    border-radius: 10px;
+    background-color: rgb(233, 230, 230);
+    height: 80px;
+}
+.search-item{
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+.search-icon{
+    padding-right: 10px;
+}

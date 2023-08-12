@@ -1,0 +1,19 @@
+.reservationContainer{
+    max-width: 80%;
+    display: flex;
+    margin: 20px;
+    box-shadow: 0 0 5px 5px rgb(181, 180, 180);
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+}
+.srInfo{
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+.buttonContainer{
+    height: 40px;
+    display: flex;
+   
+}

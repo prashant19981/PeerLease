@@ -1,0 +1,13 @@
+.headerContainer{
+    background-color: #02122c;
+    height: 200px;
+    margin-bottom: 50px;
+    align-items: center;
+    display: flex;
+   
+}
+.headerContainer h3{
+    color: white;
+    margin-left: 20px;
+    
+}

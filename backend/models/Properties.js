@@ -9,7 +9,29 @@ const PropertiesSchema = new mongoose.Schema({
     type:{
         type: String,
         required:true
-    }
+    },
+    city:{
+        type: String,
+        required: true
+    },
+    university:{
+        type: String,
+        required: true
+    },
+    imageURL:{
+        type:[String],
+        required: true
+    },
+    interestedUser:[{
+        user:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'Users'
+        },
+        approved:{
+            type: Boolean,
+            default: false
+        }
+    }]
 
 
 })
