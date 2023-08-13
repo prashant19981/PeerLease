@@ -13,27 +13,37 @@ const MyProperty = () => {
                 <h1>My Properties</h1>
 
             </div>
-           
+
             <div className="propertyContainer">
-            {loading || error ? (
-                <>
-                    <h1>Loading</h1>
-                </>
-            ):(
-                <>
-                 {result.map((value)=> {
-                       return( 
-                        <>
-                       <PropertyContainer></PropertyContainer>
-                        <UserContainer></UserContainer>
-                        </>
-                       )
-                       
-                     })}
-                </>
-            )
-            }
-               
+                {loading || error ? (
+                    <>
+                        <h1>Loading</h1>
+                    </>
+                ) : (
+                    <>
+                        {result.map((value) => {
+                            return (
+                                <>
+                                    <PropertyContainer></PropertyContainer>
+                                    {/* {value.interestedUser.map((data) => {
+                                        return (
+                                            <div className="userInfoContainer">
+                                                <UserContainer>
+
+                                                </UserContainer>
+                                            </div>
+
+                                        )
+                                    })} */}
+
+                                </>
+                            )
+
+                        })}
+                    </>
+                )
+                }
+
             </div>
 
         </div>

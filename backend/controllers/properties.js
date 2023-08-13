@@ -4,6 +4,7 @@ import Properties from "../models/Properties.js";
 import Users from "../models/Users.js";
 const router = express.Router();
 import dotenv from "dotenv";
+import Requests from "../models/Requests.js";
 dotenv.config();
 
 cloudinary.config({
@@ -76,4 +77,44 @@ export const reserveProperty = async(req,res,next) =>{
   catch(e){
     res.send(e);
   }
+}
+
+export const getPropertyRequests = async(req,res) =>{
+  try{
+    const users = await Requests.find({
+      propertyID:req.params.id
+    });
+    console.log(users);
+    const userDetails = [];
+    for(const value of users){
+     
+      const user = await Users.findById(value.userID);
+      
+      if(user){
+          userDetails.push(user);
+      }
+  }
+  res.status(200).json(userDetails);
+  }
+  catch(e){
+    res.send(e);
+  }
+}
+export const approveRequest = async(req,res) =>{
+  try{
+    const request = await Requests.findOne({
+      userID: req.params.userId,
+      propertyID: req.params.propertyId
+    })
+    if(request){
+      request.approved = true;
+      await request.save();
+
+    }
+    res.status(200).json(request);
+  }
+  catch (e){
+    res.send(e);
+  }
+
 }

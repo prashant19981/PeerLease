@@ -11,6 +11,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import requestRoute from "./routes/requests.js";
 
 dotenv.config()
 
@@ -40,6 +41,7 @@ app.use("/accom",accommodationRoute);
 app.use("/listing",listingRoute);
 app.use("/properties",propertiesRoute);
 app.use("/search",searchRoute);
+app.use("/request",requestRoute);
 
 
 // app.use(express.static(publicPath));

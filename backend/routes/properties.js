@@ -1,6 +1,6 @@
 import express from "express";
 import Properties from "../models/Properties.js";
-import { createProperty, getOneProperty, getProperties,reserveProperty } from "../controllers/properties.js";
+import { approveRequest, createProperty, getOneProperty, getProperties,getPropertyRequests,reserveProperty } from "../controllers/properties.js";
 const router = express.Router();
 import {config, uploader} from "cloudinary";
 import multer from 'multer';
@@ -37,6 +37,8 @@ router.get("/search",getProperties)
 router.get("/:id",getOneProperty)
 
 router.post("/:id/reserve",verifyUser,reserveProperty)
+router.get("/:id/requests",getPropertyRequests);
+router.get("/:userId/:propertyId",verifyUser,approveRequest);
 // router.get("/",async(req,res)=>{
 
 // })

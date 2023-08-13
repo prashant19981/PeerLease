@@ -18,9 +18,9 @@ const SearchResult = (props) => {
             </div>
 
             <div className="srInfo">
-                <h1>{props.name}</h1>
+                <h2>{props.name}</h2>
                 <h3>{props.type}</h3>
-                <h3>Price</h3>
+                <h3>£21</h3>
 
             </div>
         </div>

@@ -1,6 +1,7 @@
 import express from "express";
 import Users from "../models/Users.js";
 import Properties from "../models/Properties.js";
+import Requests from "../models/Requests.js";
 const router = express.Router();
 
 
@@ -32,6 +33,27 @@ export const myReservations = async (req,res,next) =>{
             }
         }
         res.status(200).json(properties);
+    }
+    catch (e){
+        res.send(e);
+    }
+    
+}
+export const myRequests = async (req,res,next) =>{
+    try{
+        // const user = await Users.findById(req.user.id);
+        const properties = await Requests.find({
+            userID:req.user.id
+        });
+        const propertiesinfo = [];
+        for(const value of properties){
+            const property = await Properties.findById(value.propertyID);
+            if(property){
+                propertiesinfo.push({property: property,
+                isApproved: value.approved});
+            }
+        }
+        res.status(200).json(propertiesinfo);
     }
     catch (e){
         res.send(e);

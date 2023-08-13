@@ -1,7 +1,8 @@
 import express from "express";
 import {verifyUser} from '../middleware/tokenAuth.js'
 import Users from "../models/Users.js";
-import { myProperty, myReservations } from "../controllers/users.js";
+import {  myProperty, myRequests, myReservations } from "../controllers/users.js";
+// import { getPropertyRequests } from "../controllers/properties.js";
 const router = express.Router();
 
 
@@ -22,7 +23,11 @@ router.get("/checklogin",verifyUser, async (req,res)=>{
 })
 
 router.get("/my-property",verifyUser,myProperty);
+// router.get("/my-property",verifyUser,getPropertyRequests);
 
-router.get("/my-reservations",verifyUser,myReservations);
+// router.get("/my-reservations",verifyUser,myReservations);
+router.get("/my-reservations",verifyUser,myRequests);
+
+// router.post("/approve/:pid/:uid",approveRequest);
 
 export default router;

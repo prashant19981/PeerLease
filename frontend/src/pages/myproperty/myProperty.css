@@ -16,3 +16,8 @@
     margin-right: auto;
     flex-direction: column;
 }
+.userInfoContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit);
+    gap:20px;
+}

@@ -1,0 +1,9 @@
+.userContainer{
+    width: 347px;
+    height: 178px;
+    box-shadow: 0 0 5px 5px rgb(181, 180, 180);
+    border-radius: 5px;
+    margin: 20px;
+    justify-content: flex-start;
+   
+}
