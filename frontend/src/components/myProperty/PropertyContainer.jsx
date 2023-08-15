@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import './propertyContainer.css';
-const PropertyContainer = () =>{
+import axios from "axios";
+import UserContainer from "../userContainer/UserContainer";
+const PropertyContainer = (props) =>{
+    const[requested,setRequested] = useState(false);
+    const[users,setUsers] = useState([]);
+    const[viewButtonText,setViewButtonText] = useState("View Interests")
+const handleRequest = async () =>{
+    setRequested(!requested);
+    if(requested){
+        setViewButtonText("View Interests")
+    }
+    else{
+        setViewButtonText("Hide Interests")
+    }
+    try{
 
+    
+    const res = await axios.get(`http://localhost:3000/properties/${props.prop}/requests`);
+    setUsers(res.data);
+    
+    }
+    catch (e){
+        console.log(e);
+    }
+    
+}
 return(
+    <div>
+
     
         <div className="mypropertyContainer">
             <div className="propertyimageContainer">
@@ -11,11 +37,30 @@ return(
             </div>
 
             <div className="propertyInfo">
-                <h1>Name</h1>
-                <h3>Type</h3>
-                <h3>Price</h3>
+                <h4>{props.name}</h4>
+                <h4>{props.type}</h4>
+                <h4>{props.uni}</h4>
+                <button class="btn btn-outline-success" type="submit" onClick={handleRequest}>
+                    {viewButtonText}
+                    </button>
+                </div>
+                </div>
+                {requested ? (
+                    <>
+                    {users.map((value)=> {
 
-            </div>
+                        return( <UserContainer name={value.name}
+                            email={value.email}
+
+                        ></UserContainer>)
+                    })}
+                    </>
+                ):(
+                    <>
+                    </>
+                )}
+            
+        
         </div>
   
 );

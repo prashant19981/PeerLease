@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCity,faBuildingColumns,faBed } from '@fortawesome/free-solid-svg-icons';
 import "./search.css"
 import { useNavigate } from "react-router-dom";
+import { SearchPageContext } from "../../context/SearchPageContext";
 function Search() {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
@@ -24,9 +25,11 @@ function Search() {
   }
 
   function clickSearch() {
-    navigate("/properties")
+    dispatch({type:"NEW",payload:{university:formValues.university,city:formValues.city,roomType:formValues.room}});
+    navigate("/properties",{state:{university:formValues.university,city:formValues.city,roomType:formValues.room}})
 
   }
+  const {dispatch} = useContext(SearchPageContext)
   return (
       
       <div className="search-bar"> 

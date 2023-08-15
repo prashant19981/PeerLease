@@ -21,3 +21,6 @@
     grid-template-columns: repeat(auto-fit);
     gap:20px;
 }
+.searchContainer{
+    margin: 30px;
+}

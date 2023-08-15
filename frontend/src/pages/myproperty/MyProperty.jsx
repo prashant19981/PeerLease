@@ -22,9 +22,17 @@ const MyProperty = () => {
                 ) : (
                     <>
                         {result.map((value) => {
+                            // console.log(value);
                             return (
                                 <>
-                                    <PropertyContainer></PropertyContainer>
+                                    <PropertyContainer name = {value.name}
+                                    type = {value.type}
+                                    uni = {value.university}
+                                    prop = {value._id}
+                                    ></PropertyContainer>
+                                    
+                                
+                            
                                     {/* {value.interestedUser.map((data) => {
                                         return (
                                             <div className="userInfoContainer">

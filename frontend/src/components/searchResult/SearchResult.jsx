@@ -16,11 +16,14 @@ const SearchResult = (props) => {
                 <img src={props.src}
                     className="srImg" />
             </div>
-
+            <hr />
             <div className="srInfo">
-                <h2>{props.name}</h2>
-                <h3>{props.type}</h3>
-                <h3>£21</h3>
+                <h4>{props.name}</h4>
+            
+                
+                
+                <h4>{props.type}</h4>
+                <p>£21 pw</p>
 
             </div>
         </div>
