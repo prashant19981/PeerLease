@@ -23,7 +23,8 @@ const MyReservation = () => {
                        return <ReservationContainer name = {value.property.name}
                        type = {value.property.type}
                        uni = {value.property.university}
-                       approved = {value.isApproved}>
+                       approved = {value.isApproved}
+                       status = {value.status}>
                        </ReservationContainer>
                      })}
                     

@@ -13,7 +13,16 @@ const RequestsSchema = new mongoose.Schema({
     approved:{
         type: Boolean,
         default: false
+    
+        },
+    
+    status:{
+        type: String,
+        enum:['Requested','Rejected','Approved'],
+        default:'Requested'
     }
+
+
    
 
 

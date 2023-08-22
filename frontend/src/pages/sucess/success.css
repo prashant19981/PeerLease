@@ -1,0 +1,10 @@
+.successContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}

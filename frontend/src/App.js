@@ -10,6 +10,8 @@ import Signup from './pages/signup/Signup';
 import Listing from './pages/list/Listing';
 import MyProperty from './pages/myproperty/MyProperty';
 import MyReservation from './pages/myreservation/MyReservation';
+import Checkout from './pages/checkout/Checkout';
+import Success from './pages/sucess/Success';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path='/listing' element={<Listing/>}/>
         <Route path='/myproperty' element={<MyProperty/>}/>
         <Route path='/myreservation' element={<MyReservation/>}/>
+        <Route path='/success' element={<Success/>}/>
+        <Route path='/checkout/:id' element={<Checkout/>}/>
 
       </Routes>
 

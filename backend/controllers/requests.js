@@ -12,7 +12,8 @@ export const createRequest = async (req,res,next) =>{
         const newRequest = new Requests(
             {
                 userID: user.id,
-                propertyID:property.id
+                propertyID:property.id,
+                
             }
         )
         
@@ -24,4 +25,40 @@ export const createRequest = async (req,res,next) =>{
       }
     
     }
+export const checkReserve = async (req,res,next) =>{
+
+  try{
+    const request = await Requests.findOne({
+      userID: req.user.id,
+      propertyID: req.params.id
+    })
+    if(request){
+      return res.status(200).json({exist: true,status:request.status});
+    }
+    res.status(404).json({exist:false,status:request.status});
+  }
+  catch(e){
+    res.send(e);
+  }
+}    
+
+export const checkStatus = async (req,res) =>{
+  console.log("Reached");
+  try{
+    const request = await Requests.findOne({
+      userID: req.params.userId,
+      propertyID: req.params.propertyId
+    })
+    if(request){
+      const {status} = request;
+      console.log(status);
+      return res.status(200).json(status);
+    }
+    
+  }
+  catch(e){
+    res.send(e);
+  }
+
+}
     

@@ -17,7 +17,7 @@ const MyProperty = () => {
             <div className="propertyContainer">
                 {loading || error ? (
                     <>
-                        <h1>Loading</h1>
+                        <h1>Loading...</h1>
                     </>
                 ) : (
                     <>

@@ -34,26 +34,20 @@ const Room = () => {
     if (loading) {
         return (
             <div>
-                <h1>Loading</h1>
+                <Navbar></Navbar>
+               
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
             </div>
         );
     }
     if (error) {
         return;
     }
-    const handleReserve = async () => {
-        try {
-            const res = await axios.post(`http://localhost:3000/properties/${id}/reserve`, null, {
-                withCredentials: true,
-            }
-            );
-            const responseData = JSON.parse(res.data);
-            console.log(responseData);
-        }
-        catch (e) {
-            console.log(e);
-        }
-    }
+    
 
 
 
@@ -100,7 +94,7 @@ const Room = () => {
                         <span> <p>Rooms: 2</p></span>
                     </div>
                     <div>
-                        <h4>Ameneties</h4>
+                        <h4>Amenities</h4>
                         <div className="dateContainer">
                             <span><FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
                             <span><p>Bike Storage</p></span>
@@ -140,7 +134,12 @@ const Room = () => {
 
                 </div>
                 <div className="priceContainer">
-                    <ReservationBox></ReservationBox>
+                    {isLoggedIn ? (
+                        <ReservationBox id={id}></ReservationBox>
+                    ):(
+                        <h4>Please Login to reserve property.</h4>
+                    )}
+                    
                 </div>
             </div>
         </div>

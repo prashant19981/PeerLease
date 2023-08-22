@@ -2,6 +2,8 @@ import React from "react";
 import './reservationContainer.css'
 const ReservationContainer = (props) => {
 
+    
+
     return (<div>
         <div className="reservationContainer">
             <div className="imageContainer">
@@ -19,7 +21,7 @@ const ReservationContainer = (props) => {
                 {props.approved ? (
                     <button class="btn btn-outline-success" type="submit" >Make Payment</button>
                 ) : (
-                    <button class="btn btn-outline-success" type="submit" >Status: Requested</button>
+                    <button class="btn btn-outline-success" type="submit" >{props.status}</button>
                 )}
 
             </div>

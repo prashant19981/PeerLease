@@ -50,7 +50,8 @@ export const myRequests = async (req,res,next) =>{
             const property = await Properties.findById(value.propertyID);
             if(property){
                 propertiesinfo.push({property: property,
-                isApproved: value.approved});
+                isApproved: value.approved,
+                status:value.status});
             }
         }
         res.status(200).json(propertiesinfo);

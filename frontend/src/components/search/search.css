@@ -20,3 +20,7 @@
 .search-icon{
     padding-right: 10px;
 }
+.dateRange{
+    position: absolute;
+    bottom:-20px;
+}

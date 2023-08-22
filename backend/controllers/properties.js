@@ -108,6 +108,25 @@ export const approveRequest = async(req,res) =>{
     })
     if(request){
       request.approved = true;
+      request.status = 'Approved'
+      await request.save();
+
+    }
+    res.status(200).json(request);
+  }
+  catch (e){
+    res.send(e);
+  }
+
+}
+export const rejectRequest = async(req,res) =>{
+  try{
+    const request = await Requests.findOne({
+      userID: req.params.userId,
+      propertyID: req.params.propertyId
+    })
+    if(request){
+      request.status = 'Rejected'
       await request.save();
 
     }
