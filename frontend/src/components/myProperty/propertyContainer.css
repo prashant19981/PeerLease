@@ -12,23 +12,35 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    flex: 2;
 }
 .propertyimageContainer{
     margin: 10px;
+    flex: 1;
 }
 .propertyInfo button{
-    position: relative;
-    ;
+    
+    
 }
 .crudOptions{
     margin: 10px;
     display: flex;
     /* flex-direction: column; */
-    align-items:first baseline;
-    justify-content:center;
+    /* align-items:first baseline; */
+    /* justify-content:center; */
+    justify-content: flex-end;
+    align-items: flex-start; 
+    /* align-items: center; */
+    flex: 1;
+    
     
     
 }
 .space{
     width: 20px;
+}
+.crud-buttons{
+    display: flex;
+    margin-right: 10px;
+    
 }

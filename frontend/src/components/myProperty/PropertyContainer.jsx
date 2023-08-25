@@ -4,10 +4,45 @@ import axios from "axios";
 import UserContainer from "../userContainer/UserContainer";
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Button, Modal } from 'antd';
 const PropertyContainer = (props) => {
     const [requested, setRequested] = useState(false);
     const [users, setUsers] = useState([]);
     const [viewButtonText, setViewButtonText] = useState("View Interests")
+    const [open, setOpen] = useState(false);
+    const [confirmLoading, setConfirmLoading] = useState(false);
+    const [modalText, setModalText] = useState('Content of the modal');
+
+    const showModal = () => {
+        setModalText('Are you sure you want to delete this property?');
+        setOpen(true);
+        
+    };
+    const handleOk = async () => {
+        
+        setConfirmLoading(true);
+        try{
+            const res = await axios.post(`http://localhost:3000/properties/${props.prop}/delete`,null,{
+                withCredentials:true
+            })
+            setConfirmLoading(false);
+            setOpen(false);
+            window.location.reload();
+        }
+        catch(e){
+            console.log(e);
+        }
+        // setTimeout(() => {
+        //     setOpen(false);
+        //     setConfirmLoading(false);
+        // }, 2000);
+    };
+
+    const handleCancel = () => {
+        console.log('Clicked cancel button');
+        setOpen(false);
+    };
+
     const handleRequest = async () => {
         setRequested(!requested);
         if (requested) {
@@ -30,6 +65,17 @@ const PropertyContainer = (props) => {
     }
     return (
         <div>
+            <Modal
+                title="Confirm Deletion"
+                open={open}
+                onOk={handleOk}
+                confirmLoading={confirmLoading}
+                onCancel={handleCancel}
+                okText="Yes"
+            >
+
+                <p>{modalText}</p>
+            </Modal>
 
 
             <div className="mypropertyContainer">
@@ -46,10 +92,13 @@ const PropertyContainer = (props) => {
                     </button>
                 </div>
                 <div className="crudOptions">
-                <div className="space"></div>
-                <FontAwesomeIcon className="icon mt-3" icon={faPenToSquare} size="xl"/>
-                <div className="space"></div>
-                <FontAwesomeIcon className="icon mt-3 ml-3" icon={faTrashCan} size="xl"/>
+                    <div className="crud-buttons">
+                        <div className="space"></div>
+                        <FontAwesomeIcon className="icon mt-3" icon={faPenToSquare} size="xl" />
+                        <div className="space"></div>
+                        <FontAwesomeIcon className="icon mt-3 ml-3" onClick={showModal} icon={faTrashCan} size="xl" />
+                    </div>
+
                 </div>
             </div>
             {requested ? (
@@ -58,7 +107,7 @@ const PropertyContainer = (props) => {
 
                         return (
                             !value.isApproved && (
-                                <UserContainer key={value._id} userId ={value._id} propId={props.prop} name={value.name}
+                                <UserContainer key={value._id} userId={value._id} propId={props.prop} name={value.name}
                                     email={value.email}
 
                                 ></UserContainer>

@@ -76,3 +76,17 @@ body{
     margin: 5px 5px 5px 10px;
     
 }
+.contactContainer{
+    max-width: 100%;
+    display: inline-block;
+    margin: 20px;
+    box-shadow: 0 0 2px 2px rgb(243, 116, 116);
+    border-radius: 5px;
+    cursor: pointer;
+    
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.body-color{
+    background-color: rgb(233, 228, 228);
+}

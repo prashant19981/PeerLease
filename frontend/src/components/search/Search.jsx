@@ -10,13 +10,19 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 function Search() {
   const navigate = useNavigate();
   const { dispatch } = useContext(SearchPageContext)
-  const [showCalendar,setShowCalendar] = useState(false);
-  const {city, university, date} = useContext(SearchPageContext);
-  console.log(university);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [showAdvancedTab,setShowAdvancedTab] = useState(false);
+  const [arrowSymbol,setArrowSymbol] = useState("↓");
+  const { city, university, date,minPrice,maxPrice,bills,gurantor } = useContext(SearchPageContext);
+  console.log(bills);
   const [formValues, setFormValues] = useState({
     city: city,
     university: university,
-    date:date
+    date: date,
+    minPrice:minPrice,
+    maxPrice:maxPrice,
+    bills:bills,
+    gurantor:gurantor 
   })
   const [dateRange, setDateRange] = useState([{
     startDate: new Date(),
@@ -36,16 +42,38 @@ function Search() {
     });
 
   }
-
+  const clickAdvanced = () =>{
+    if(!showAdvancedTab){
+      setShowAdvancedTab(true);
+      setArrowSymbol("↑");
+    }
+    else{
+      setShowAdvancedTab(false);
+      setArrowSymbol("↓")
+    }
+    
+  }
   function clickSearch() {
     console.log(formValues);
-    dispatch({ type: "NEW", payload: { university: formValues.university, city: formValues.city, date: formValues.date } });
-    navigate("/properties", { state: { university: formValues.university, city: formValues.city, date: formValues.date } })
+    dispatch({ type: "NEW", payload: { university: formValues.university, 
+      city: formValues.city, 
+      date: formValues.date, 
+      minPrice:formValues.minPrice,
+      maxPrice:formValues.maxPrice,
+      bills:formValues.bills,
+      gurantor:formValues.gurantor  } });
+    navigate("/properties", { state: { university: formValues.university, 
+      city: formValues.city, 
+      date: formValues.date,
+      minPrice:formValues.minPrice,
+      maxPrice:formValues.maxPrice,
+      bills:formValues.bills,
+      gurantor:formValues.gurantor  } })
 
   }
-  
-  return (
 
+  return (
+<>
     <div className="search-bar">
       <div className="search-item">
         <FontAwesomeIcon icon={faCity} className="search-icon" />
@@ -73,44 +101,44 @@ function Search() {
       <div className="search-item">
         <FontAwesomeIcon icon={faCalendarDays} className="search-icon" />
         <input autoComplete="off"
-        onClick={() =>setShowCalendar(!showCalendar)}
-            type='text'
-            name = "date"
-            // value={formValues.room}
-            value={formValues.date}
-            placeholder='Select date range'
-            onChange={handleChange}>
+          onClick={() => setShowCalendar(!showCalendar)}
+          type='text'
+          name="date"
+          // value={formValues.room}
+          value={formValues.date}
+          placeholder='Select date range'
+          onChange={handleChange}>
 
-          </input>
-          {showCalendar && 
-         
+        </input>
+        {showCalendar && 
+
           <DateRange
-          editableDateInputs={true}
-          onChange={item => {
-            
-            setDateRange([item.selection]);
-            
-            setFormValues(prevFormDate =>{
-            const startDateForamatted = item.selection.startDate.toLocaleDateString('en-GB') ;
-            const endDateFormatted = item.selection.endDate.toLocaleDateString('en-GB');
-            if(startDateForamatted!=endDateFormatted){
-              setShowCalendar(false);
-            }
-            return {
-              ...prevFormDate,
-              date: startDateForamatted+'-' + endDateFormatted
-              
-            }
-            });
-            
-            // formValues.dateSelected = startDateForamatted + '-' + endDateFormatted;
-          }}
-          moveRangeOnFirstSelection={false}
-          ranges={dateRange}
-          className="dateRange"
-          
-        />
-      }
+            editableDateInputs={true}
+            onChange={item => {
+
+              setDateRange([item.selection]);
+
+              setFormValues(prevFormDate => {
+                const startDateForamatted = item.selection.startDate.toLocaleDateString('en-GB');
+                const endDateFormatted = item.selection.endDate.toLocaleDateString('en-GB');
+                if (startDateForamatted != endDateFormatted) {
+                  setShowCalendar(false);
+                }
+                return {
+                  ...prevFormDate,
+                  date: startDateForamatted + '-' + endDateFormatted
+
+                }
+              });
+
+              // formValues.dateSelected = startDateForamatted + '-' + endDateFormatted;
+            }}
+            moveRangeOnFirstSelection={false}
+            ranges={dateRange}
+            className="dateRange"
+
+          />
+        }
       </div>
       <div className="search-item">
         <button
@@ -120,11 +148,47 @@ function Search() {
         >Search
         </button>
       </div>
+      </div>
       
-    </div>
-    
+      <div className="d-flex justify-content-center mt-3">
+                <button class="btn btn-outline-success mb-4" type="submit" onClick={clickAdvanced}>Advanced Search <span>{arrowSymbol}</span></button>
+            </div>
+      {showAdvancedTab &&       
+      <div className="advanceSearch">
+      <form className="d-flex flex-row align-items-center">
+        <div class="input-group">
+          <span class="input-group-text">Min and Max Price</span>
+          <input value={formValues.minPrice} onChange={handleChange} name="minPrice" type="text" aria-label="First name" class="form-control" />
+          <input value={formValues.maxPrice} onChange={handleChange} name="maxPrice" type="text" aria-label="Last name" class="form-control" />
+        </div>
+        <div class="input-group">
+          <span class="input-group-text ms-3">Bills</span>
+          <select name="bills" value={formValues.bills} onChange={handleChange} class="form-select form-select-md align-self-center" aria-label="Small select example">
+            <option selected>Bills Included?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
 
+          </select>
 
+        </div>
+        <div class="input-group">
+          <span class="input-group-text ms-3">Gurantor</span>
+          <select name="gurantor" value={formValues.gurantor} onChange={handleChange} class="form-select form-select-md align-self-center" aria-label="Small select example">
+            <option selected>Gurantor Required?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+
+          </select>
+
+        </div>
+        
+
+      </form>
+      </div>
+      
+
+    }
+      </>
   )
 
 }

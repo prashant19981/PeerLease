@@ -1,6 +1,6 @@
 import express from "express";
 import Properties from "../models/Properties.js";
-import { approveRequest, createProperty, getOneProperty, getProperties,getPropertyRequests,rejectRequest,reserveProperty } from "../controllers/properties.js";
+import { approveRequest, createProperty, deleteProperty, getOneProperty, getProperties,getPropertyRequests,rejectRequest,reserveProperty, updateProperty } from "../controllers/properties.js";
 const router = express.Router();
 import {config, uploader} from "cloudinary";
 import multer from 'multer';
@@ -40,6 +40,9 @@ router.post("/:id/reserve",verifyUser,reserveProperty)
 router.get("/:id/requests",getPropertyRequests);
 router.post("/:userId/:propertyId/approve",verifyUser,approveRequest);
 router.post("/:userId/:propertyId/reject",verifyUser,rejectRequest);
+router.post("/:id/delete",verifyUser,deleteProperty);
+router.post("/:id/update",verifyUser,upload.none(),updateProperty);
+
 // router.get("/",async(req,res)=>{
 
 // })

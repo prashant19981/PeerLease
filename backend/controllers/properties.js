@@ -41,11 +41,46 @@ export const createProperty = async(req,res,next)=>{
         res.status(500).json(e);
     }
 };
-export const getProperties = async(req,res,next)=>{
+export const deleteProperty = async(req,res) =>{
+  try{
+    const property = await Properties.findByIdAndDelete(req.params.id);
+    res.status(200).json({message:"Property deleted"});
+  }
+  catch(e){
+    return res.send(e);
+  }
+}
+export const updateProperty = async(req,res) =>{
+  try{
+    console.log(req.body);
+    const property = await Properties.findByIdAndUpdate(req.params.id,
+      {$set:req.body},
+      {new:true});
+      
+      if(!property){
+        res.status(404).json({message:"Property not found"});
+      }
+      res.status(200).json(property);
+  }
+  catch(e){
+
+  }
+}
+export const getProperties = async(req,res)=>{
     const cityName = req.query.city;
+    const{city,bills,university,date,gurantor,minPrice,maxPrice} = req.query;
+    const searchQuery = {};
+    if(city) searchQuery.city = city;
+    if(bills) searchQuery.bills = bills;
+    if(university) searchQuery.university = university;
+    if(date) searchQuery.date = date;
+    if(gurantor) searchQuery.gurantor = gurantor;
+    // if(minPrice) searchQuery.minPrice = minPrice;
+    // if(maxPrice) searchQuery.maxPrice = maxPrice;
+
     console.log(cityName)
     try{
-        const properties = await Properties.find({city:cityName});
+        const properties = await Properties.find(searchQuery);
         res.status(200).json(properties);
     }
     catch(e){

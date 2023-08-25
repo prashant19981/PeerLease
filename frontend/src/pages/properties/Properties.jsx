@@ -46,7 +46,7 @@ const Properties = () => {
                 <Search></Search>
 
             </div>
-            <div className="d-flex justify-content-center">
+            {/* <div className="d-flex justify-content-center">
                 <button class="btn btn-outline-success mb-4" type="submit" >Advanced Search <span>&#x2193;</span></button>
             </div>
             <div className="advanceSearch">
@@ -78,7 +78,7 @@ const Properties = () => {
                     </div>
                     
                 </form>
-            </div>
+            </div> */}
 
 
             <hr />
@@ -90,7 +90,9 @@ const Properties = () => {
 
                             {result.map((value) => {
                                 return <SearchResult key={value._id} name={value.name} type={value.type} id={value._id}
-                                    src={value.imageURL[0]} />
+                                    src={value.imageURL[0]} 
+                                    date = {value.date.split("-")[0]}
+                                    price = {value.price}/>
 
                             })}
                         </>

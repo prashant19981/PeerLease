@@ -4,7 +4,11 @@ const INIT = {
     // startDate:[],
     university: undefined,
     city:undefined,
-    date:undefined
+    date:undefined,
+    minPrice:undefined,
+    maxPrice:undefined,
+    bills:undefined,
+    gurantor:undefined
 }
 
 export const SearchPageContext = createContext(INIT)
@@ -26,7 +30,8 @@ export const SearchPageContextProvider = ({children}) =>{
 
     return (
         <SearchPageContext.Provider
-        value = {{university:state.university,city:state.city,date:state.date,dispatch}}
+        value = {{university:state.university,city:state.city,date:state.date,minPrice:state.minPrice,maxPrice:state.maxPrice,
+            bills:state.bills,gurantor:state.gurantor,dispatch}}
         >
             {children}
         </SearchPageContext.Provider>

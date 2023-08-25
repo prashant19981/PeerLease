@@ -51,7 +51,7 @@ const ReservationBox = (props) => {
 
             <div className="srInformation">
                 <div>
-                    <h4>Price: £95 pw</h4>
+                    <h4>Price: £{props.price} pw</h4>
                     <hr />
                 </div>
                 <div className="dateContainer">

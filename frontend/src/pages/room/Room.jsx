@@ -3,10 +3,11 @@ import './room.css'
 import Navbar from "../../components/navbar/Navbar";
 import { useParams } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
-import { faLocationDot, faSink, faHouse, faBasketShopping, faBed,faFireFlameCurved } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faSink, faHouse, faBasketShopping, faBed, faFireFlameCurved } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import axios from "axios";
 import ReservationBox from "../../components/reservationBox/ReservationBox";
+
 const Room = () => {
 
     const { id } = useParams();
@@ -35,7 +36,7 @@ const Room = () => {
         return (
             <div>
                 <Navbar></Navbar>
-               
+
                 <div class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
                         <span class="visually-hidden">Loading...</span>
@@ -47,10 +48,10 @@ const Room = () => {
     if (error) {
         return;
     }
-    
 
 
 
+    console.log(result);
     return (
 
         <div>
@@ -109,39 +110,41 @@ const Room = () => {
                     <hr />
                     <div>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                     </div>
-
-                    {/* {isLoggedIn ? (
-                        <>
-                            <span className="bookingButton">
-                                <button className="btn btn-primary" onClick={handleReserve}>Reserve Property</button>
-                            </span>
-                        </>
-                    ) : (
-                        <>
-                            <span className="bookingButton">
-                                <p>Please Login to reserve property.</p>
-                            </span>
-                        </>
-                    )
-
-
-                    } */}
 
 
 
                 </div>
                 <div className="priceContainer">
                     {isLoggedIn ? (
-                        <ReservationBox id={id}></ReservationBox>
-                    ):(
+                        <>
+                            <ReservationBox id={id} price ={result.price} 
+                            date ={result.date} deposit={result.deposit} 
+                            bills={result.bills}> </ReservationBox>
+                            <div className="contactContainer">
+                            <div class="card" style={{width:'18rem'}}>
+                            
+                                    <div class="card-body body-color">
+                                        <h5 class="card-title">Contact Owner</h5>
+                                        <p class="card-text">Get in Touch with the Owner via WhatsApp</p>
+                                        <a href="https://wa.me/7776552446" target="_blank"><button class="btn btn-outline-success gap 10" type="submit">Whatsapp</button></a>
+                                        
+                                    </div>
+                            </div>
+                            </div>
+                        </>
+                    ) : (
                         <h4>Please Login to reserve property.</h4>
                     )}
-                    
+
+
                 </div>
             </div>
+
+
+
         </div>
     )
 
