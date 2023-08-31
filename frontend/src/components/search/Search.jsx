@@ -38,9 +38,8 @@ function Search() {
         ...prevData,
         [name]: value
       }
-
     });
-
+    console.log(formValues);
   }
   const clickAdvanced = () =>{
     if(!showAdvancedTab){

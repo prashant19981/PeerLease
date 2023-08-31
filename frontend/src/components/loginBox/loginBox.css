@@ -11,6 +11,7 @@
     display: inline-block;
     /* margin: 20px; */
     box-shadow: 0 0 5px 5px rgb(181, 180, 180);
+    width: 400px;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
@@ -23,4 +24,10 @@
 }
 .loginButton{
     margin-bottom: 10px;
+}
+.userImage{
+    height: 100px;
+    width: auto;
+    position: relative;
+   
 }

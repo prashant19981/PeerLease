@@ -129,7 +129,7 @@ const Room = () => {
                                     <div class="card-body body-color">
                                         <h5 class="card-title">Contact Owner</h5>
                                         <p class="card-text">Get in Touch with the Owner via WhatsApp</p>
-                                        <a href="https://wa.me/7776552446" target="_blank"><button class="btn btn-outline-success gap 10" type="submit">Whatsapp</button></a>
+                                        <a href="https://wa.me/1234567890" target="_blank"><button class="btn btn-outline-success gap 10" type="submit">Whatsapp</button></a>
                                         
                                     </div>
                             </div>

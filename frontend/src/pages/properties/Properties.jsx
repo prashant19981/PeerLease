@@ -8,8 +8,10 @@ import useSearch from "../../hooks/useSearch";
 import { useContext } from "react";
 import { SearchPageContext } from "../../context/SearchPageContext";
 const Properties = () => {
-    const { uni, city, date } = useContext(SearchPageContext);
-    const { result, loading, error, refetch } = useSearch(`http://localhost:3000/properties/search?city=${city}`);
+    const { university, city, date } = useContext(SearchPageContext);
+    console.log(university);
+    const searchQuery = `http://localhost:3000/properties/search?city=${city}&university=${university}&date=${date}`;
+    const { result, loading, error, refetch } = useSearch(searchQuery);
     const [showAdvancedTab, setShowAdvancedTab] = useState(false);
     const [minPrice, setMinPrice] = useState(undefined);
     const [maxPrice, setMaxPrice] = useState(undefined);

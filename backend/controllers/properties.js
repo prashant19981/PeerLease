@@ -68,13 +68,15 @@ export const updateProperty = async(req,res) =>{
 }
 export const getProperties = async(req,res)=>{
     const cityName = req.query.city;
+    // console.log(req.query);
     const{city,bills,university,date,gurantor,minPrice,maxPrice} = req.query;
     const searchQuery = {};
     if(city) searchQuery.city = city;
     if(bills) searchQuery.bills = bills;
     if(university) searchQuery.university = university;
-    if(date) searchQuery.date = date;
+    // if(date) searchQuery.date = date;
     if(gurantor) searchQuery.gurantor = gurantor;
+    console.log(searchQuery);
     // if(minPrice) searchQuery.minPrice = minPrice;
     // if(maxPrice) searchQuery.maxPrice = maxPrice;
 

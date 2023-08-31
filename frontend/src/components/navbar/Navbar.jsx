@@ -70,8 +70,8 @@ const Navbar = () => {
                         <a class="nav-link navbar-elements" href="#" onClick={addListing}>List your property?</a>
                         {loading || error ? (
                             <>
-                                <button class="btn btn-outline-success mr-6" type="submit" onClick={handleLogin}>Login</button>
-                                <button class="btn btn-outline-success" type="submit" onClick={handleSignup}>Signup</button>
+                                <button class="btn btn-outline-success mr-4" type="submit" onClick={handleLogin}>Login</button>
+                                <button class="btn btn-outline-success ml-3" type="submit" onClick={handleSignup}>Signup</button>
                             </>
                         ) :
                             (

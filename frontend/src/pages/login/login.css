@@ -3,10 +3,17 @@
     justify-content: center;
     align-items: center;
     height: 200px;
+    width: auto;
     text-align: center;
     flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 .header h1{
     display: flex;
     align-items: center;
+}
+.header img{
+    height: 300px;
+    width: auto;
 }

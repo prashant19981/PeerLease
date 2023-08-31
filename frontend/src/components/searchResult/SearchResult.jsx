@@ -1,7 +1,7 @@
 import React from "react";
 import './searchResult.css'
 import { useNavigate } from "react-router-dom";
-import { faMoneyBill1Wave } from '@fortawesome/free-solid-svg-icons';
+import { faMoneyBill1Wave,faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import useSearch from "../../hooks/useSearch";
 const SearchResult = (props) => {
@@ -35,7 +35,7 @@ const SearchResult = (props) => {
                 </div>
                
                 <div className="result-date">
-                    <span className="ml-3"><FontAwesomeIcon className="icon" icon={faMoneyBill1Wave} /></span>
+                    <span className="ml-3"><FontAwesomeIcon className="icon" icon={faCalendar} /></span>
                     <p>Move in date: {props.date} </p>
                 </div>
             </div>

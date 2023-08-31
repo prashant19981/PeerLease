@@ -13,6 +13,7 @@ import MyReservation from './pages/myreservation/MyReservation';
 import Checkout from './pages/checkout/Checkout';
 import Success from './pages/sucess/Success';
 import EditPage from './pages/editPage/EditPage';
+import PaymentSuccess from './pages/paymentSuccess/PaymentSuccess';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/success' element={<Success/>}/>
         <Route path='/checkout/:id' element={<Checkout/>}/>
         <Route path='/edit/:id' element={<EditPage/>}/>
+        <Route path='/payment' element={<PaymentSuccess/>}/>
         
         
       </Routes>

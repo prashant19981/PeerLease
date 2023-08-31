@@ -6,5 +6,18 @@
         justify-content: center;
         font-size: 1.2em;
         color: var(--dark-terminal-color);
+        align-items: center;
 
+}
+.paymentProperty{
+        border-radius: 20px;
+        border: 1px solid rgb(194, 189, 189);
+        background-color: rgb(231, 229, 229);
+        justify-content: center;
+        align-items: center;
+        margin-right: 50px;
+}
+.imgContainer{
+        height: 350px;
+        width: 100%;
 }

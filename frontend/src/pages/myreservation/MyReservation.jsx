@@ -24,7 +24,9 @@ const MyReservation = () => {
                        type = {value.property.type}
                        uni = {value.property.university}
                        approved = {value.isApproved}
-                       status = {value.status}>
+                       status = {value.status}
+                       id = {value.property._id}>
+                       
                        </ReservationContainer>
                      })}
                     

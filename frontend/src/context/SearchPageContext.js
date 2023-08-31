@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react"
 
 const INIT = {
     // startDate:[],
-    university: undefined,
+    university:'',
     city:undefined,
     date:undefined,
     minPrice:undefined,
