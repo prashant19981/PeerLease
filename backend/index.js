@@ -13,7 +13,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import requestRoute from "./routes/requests.js";
 import Stripe from 'stripe';
-
+import path from 'path';
 dotenv.config()
 
 // const publicPath = path.join(__dirname,'../frontend/build');
@@ -81,3 +81,7 @@ app.listen(3000,() => {
     connection();
     console.log("Listening to port 3000");
 })
+
+if(process.env.NODE_ENV ==='production'){
+    app.use(express.static(path.join(__dirname,'frontend','build')))
+}
