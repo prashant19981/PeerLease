@@ -10,6 +10,7 @@ export const myProperty = async(req,res,next)=>{
         const user = await Users.findById(req.user.id);
         const properties = [];
         for(const propertyId of user.myProperty){
+           
             const property = await Properties.findById(propertyId.property);
             if(property){
                 properties.push(property);
@@ -24,6 +25,8 @@ export const myProperty = async(req,res,next)=>{
 export const myReservations = async (req,res,next) =>{
     try{
         const user = await Users.findById(req.user.id);
+        // const requests = await Requests.find({userID: req.user.id})
+        // console.log("Reservation is :",requests);
         const properties = [];
         for(const propertyId of user.interestedProperty){
             const property = await Properties.findById(propertyId.property);
@@ -45,6 +48,7 @@ export const myRequests = async (req,res,next) =>{
         const properties = await Requests.find({
             userID:req.user.id
         });
+        console.log(properties);
         const propertiesinfo = [];
         for(const value of properties){
             const property = await Properties.findById(value.propertyID);

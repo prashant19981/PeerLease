@@ -48,6 +48,7 @@ const LoginBox = () => {
                         type="email"
                         placeholder="Email"
                         value={loginCreds.email}
+                        className="form-control"
                         onChange={handleChange}>
 
                     </input>
@@ -60,6 +61,7 @@ const LoginBox = () => {
                     type="password"
                     placeholder="Password"
                     value={loginCreds.password}
+                    className="form-control"
                     onChange={handleChange}>
 
                 </input>

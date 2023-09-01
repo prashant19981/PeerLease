@@ -15,6 +15,7 @@
 .buttonContainer{
     height: 40px;
     display: flex;
+    flex-direction: column;
    
 }
 .srImg{

@@ -5,7 +5,9 @@ import UserContainer from "../userContainer/UserContainer";
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button, Modal } from 'antd';
+import { useNavigate } from "react-router-dom";
 const PropertyContainer = (props) => {
+    const navigate = useNavigate();
     const [requested, setRequested] = useState(false);
     const [users, setUsers] = useState([]);
     const [viewButtonText, setViewButtonText] = useState("View Interests")
@@ -37,6 +39,9 @@ const PropertyContainer = (props) => {
         //     setConfirmLoading(false);
         // }, 2000);
     };
+    const handleEdit =() => {
+        navigate(`/edit/${props.prop}`);
+    }
 
     const handleCancel = () => {
         console.log('Clicked cancel button');
@@ -80,7 +85,7 @@ const PropertyContainer = (props) => {
 
             <div className="mypropertyContainer">
                 <div className="propertyimageContainer">
-                    <img src="https://www.studentcastle.co.uk/media/2397/atkinson-twin-2.png?anchor=middlecenter&mode=crop&quality=75&format=png&scale=both&width=1200&height=750"
+                    <img src={props.src}
                         className="srImg" />
                 </div>
 
@@ -94,7 +99,7 @@ const PropertyContainer = (props) => {
                 <div className="crudOptions">
                     <div className="crud-buttons">
                         <div className="space"></div>
-                        <FontAwesomeIcon className="icon mt-3" icon={faPenToSquare} size="xl" />
+                        <FontAwesomeIcon className="icon mt-3" icon={faPenToSquare} onClick={handleEdit} size="xl" />
                         <div className="space"></div>
                         <FontAwesomeIcon className="icon mt-3 ml-3" onClick={showModal} icon={faTrashCan} size="xl" />
                     </div>

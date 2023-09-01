@@ -4,11 +4,11 @@ const INIT = {
     // startDate:[],
     university:'',
     city:undefined,
-    date:undefined,
-    minPrice:undefined,
-    maxPrice:undefined,
-    bills:undefined,
-    gurantor:undefined
+    date:'',
+    minPrice:'',
+    maxPrice:'',
+    bills:'',
+    gurantor:''
 }
 
 export const SearchPageContext = createContext(INIT)

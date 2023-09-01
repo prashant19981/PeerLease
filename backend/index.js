@@ -13,6 +13,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import requestRoute from "./routes/requests.js";
 import Stripe from 'stripe';
+import path from 'path';
 
 dotenv.config()
 
@@ -81,3 +82,10 @@ app.listen(3000,() => {
     connection();
     console.log("Listening to port 3000");
 })
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+
+if(process.env.NODE_ENV ==='production'){
+    app.use(express.static(path.join(__dirname,'frontend','build')))
+}

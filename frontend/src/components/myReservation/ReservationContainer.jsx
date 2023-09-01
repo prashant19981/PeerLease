@@ -8,11 +8,13 @@ const ReservationContainer = (props) => {
 
         navigate(`/checkout/${props.id}`)
     }
-
+    const viewProperty = () =>{
+        navigate(`/properties/${props.id}`)
+    }
     return (<div>
         <div className="reservationContainer">
             <div className="imageContainer">
-                <img src="https://www.studentcastle.co.uk/media/2397/atkinson-twin-2.png?anchor=middlecenter&mode=crop&quality=75&format=png&scale=both&width=1200&height=750"
+                <img src={props.src}
                     className="srImg" />
             </div>
 
@@ -33,6 +35,7 @@ const ReservationContainer = (props) => {
                 ) : (
                     <button class="btn btn-outline-success" type="submit" >{props.status}</button>
                 )}
+                <button class="btn btn-outline-success mt-4" type="submit" onClick={viewProperty} >View Property</button>
 
             </div>
         </div>

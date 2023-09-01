@@ -18,18 +18,20 @@ const MyReservation = () => {
                     </>
                 ) : (
                     <>
-                    {console.log(result)}
-                     {result.map((value)=> {
-                       return <ReservationContainer name = {value.property.name}
-                       type = {value.property.type}
-                       uni = {value.property.university}
-                       approved = {value.isApproved}
-                       status = {value.status}
-                       id = {value.property._id}>
-                       
-                       </ReservationContainer>
-                     })}
-                    
+                        {console.log(result)}
+                        {result.map((value) => {
+                            return <ReservationContainer
+                                name={value.property.name}
+                                type={value.property.type}
+                                uni={value.property.university}
+                                approved={value.isApproved}
+                                status={value.status}
+                                id={value.property._id}
+                                src={value.property.imageURL}>
+
+                            </ReservationContainer>
+                        })}
+
                     </>
                 )}
 

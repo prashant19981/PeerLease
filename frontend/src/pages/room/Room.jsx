@@ -72,7 +72,7 @@ const Room = () => {
                     </div>
                     <hr></hr>
                     <div className="accomodationName">
-                        <h3>Accomodation Details</h3>
+                        {/* <h3>Accomodation Details</h3> */}
                     </div>
                     <div className="hotelDescContainer">
 
@@ -88,29 +88,37 @@ const Room = () => {
                         <span><FontAwesomeIcon className="icon" icon={faHouse} /></span>
                         <span><p>{result.type}</p></span>
                         <span><FontAwesomeIcon className="icon" icon={faBasketShopping} /></span>
-                        <span><p>Grocery: 2 miles</p></span>
+                        <span><p>Grocery: {result.grocery} miles</p></span>
                         <span> <FontAwesomeIcon className="icon" icon={faSink} /></span>
-                        <span> <p>Baths: 2</p></span>
+                        <span> <p>Baths: {result.baths}</p></span>
                         <span> <FontAwesomeIcon className="icon" icon={faBed} /></span>
-                        <span> <p>Rooms: 2</p></span>
+                        <span> <p>Rooms: {result.beds}</p></span>
                     </div>
-                    <div>
-                        <h4>Amenities</h4>
-                        <div className="dateContainer">
-                            <span><FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
+                    {result.amenities &&
+                        <div>
+                            <h4>Amenities</h4>
+                            <div className="dateContainer">
+                                {result.amenities.split(',').map((value) =>
+                                    <>
+                                        <span><FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
+                                        <span><p>{value}</p></span>
+                                    </>
+                                )}
+                                {/* <span><FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
                             <span><p>Bike Storage</p></span>
                             <span><FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
                             <span><p>Wifi</p></span>
                             <span> <FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
                             <span> <p>TV</p></span>
                             <span> <FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
-                            <span> <p>Dryer</p></span>
+                            <span> <p>Dryer</p></span> */}
+                            </div>
                         </div>
-                    </div>
+                    }
                     <hr />
                     <div>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            {result.desc}
                         </p>
                     </div>
 
@@ -120,19 +128,19 @@ const Room = () => {
                 <div className="priceContainer">
                     {isLoggedIn ? (
                         <>
-                            <ReservationBox id={id} price ={result.price} 
-                            date ={result.date} deposit={result.deposit} 
-                            bills={result.bills}> </ReservationBox>
+                            <ReservationBox id={id} price={result.price}
+                                date={result.date} deposit={result.deposit}
+                                bills={result.bills}> </ReservationBox>
                             <div className="contactContainer">
-                            <div class="card" style={{width:'18rem'}}>
-                            
+                                <div class="card" style={{ width: '18rem' }}>
+
                                     <div class="card-body body-color">
                                         <h5 class="card-title">Contact Owner</h5>
                                         <p class="card-text">Get in Touch with the Owner via WhatsApp</p>
                                         <a href="https://wa.me/1234567890" target="_blank"><button class="btn btn-outline-success gap 10" type="submit">Whatsapp</button></a>
-                                        
+
                                     </div>
-                            </div>
+                                </div>
                             </div>
                         </>
                     ) : (

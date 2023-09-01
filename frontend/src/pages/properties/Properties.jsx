@@ -8,20 +8,14 @@ import useSearch from "../../hooks/useSearch";
 import { useContext } from "react";
 import { SearchPageContext } from "../../context/SearchPageContext";
 const Properties = () => {
-    const { university, city, date } = useContext(SearchPageContext);
-    console.log(university);
-    const searchQuery = `http://localhost:3000/properties/search?city=${city}&university=${university}&date=${date}`;
+    const { university, city, date,bills,gurantor } = useContext(SearchPageContext);
+    console.log(bills);
+    const searchQuery = `http://localhost:3000/properties/search?city=${city}&university=${university}&date=${date}&bills=${bills}&gurantor=${gurantor}`;
     const { result, loading, error, refetch } = useSearch(searchQuery);
-    const [showAdvancedTab, setShowAdvancedTab] = useState(false);
-    const [minPrice, setMinPrice] = useState(undefined);
-    const [maxPrice, setMaxPrice] = useState(undefined);
-    const[reqGurantor,setReqGurantor] =useState(undefined);
-    const[bills,setBills] = useState(undefined);
+    
     // const {city} = location.state.formValues;
     console.log(city);
-    const handleClick = () => {
-        alert("Component clicked")
-    }
+   
     if (loading) {
         return (
             <div>

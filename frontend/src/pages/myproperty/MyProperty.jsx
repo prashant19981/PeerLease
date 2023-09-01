@@ -29,6 +29,7 @@ const MyProperty = () => {
                                     type = {value.type}
                                     uni = {value.university}
                                     prop = {value._id}
+                                    src = {value.imageURL}
                                     ></PropertyContainer>
                                     
                                 

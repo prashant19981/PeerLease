@@ -7,8 +7,14 @@ import { useNavigate } from "react-router-dom";
 
 const ReservationBox = (props) => {
     const [isReserved, setIsReserved] = useState(false);
+    const [isApproved, setIsApproved] = useState(false);
     const [loadingAnimation, setLoadingAnimation] = useState(false);
+    const [buttonText,setButtonText] = useState('Reserve');
     const navigate = useNavigate();
+    const handlePayment= ()=>{
+
+        navigate(`/checkout/${props.id}`)
+    }
     const handleReserve = async () => {
         try {
             setLoadingAnimation(true);
@@ -34,10 +40,18 @@ const ReservationBox = (props) => {
                 const res = await axios.get(`http://localhost:3000/request/${props.id}/check-reserve`, {
                     withCredentials: true,
                 });
-                // console.log(res);
+                console.log(res.data);
                 if (res.status === 200) {
                     setIsReserved(true);
+                    if(res.data.status === "Approved"){
+                        setIsApproved(true);
+                    }
+                    else{
+                    setButtonText(res.data.status);
+                    }
                 }
+                // if(res.data.status === "Approved")
+                
             }
             catch (e) {
                 setIsReserved(false);
@@ -76,7 +90,12 @@ const ReservationBox = (props) => {
                 </div>
                 <div className="buttonContainer">
                     {isReserved ? (
-                        <button class="btn btn-outline-danger">Status: Requested</button>
+                        isApproved? (
+                            <button onClick={handlePayment} class="btn btn-outline-danger">Make Payment</button>
+                        ):(
+                            <button class="btn btn-outline-danger">Status: {buttonText}</button>
+                        )
+                        
                     ) : (
                         <button type="button" onClick={handleReserve} class="btn btn-outline-danger">Reserve Property</button>
                     )}
