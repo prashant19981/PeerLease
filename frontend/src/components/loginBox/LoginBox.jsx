@@ -4,9 +4,11 @@ import { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { faUser, faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import bcryptjs from 'bcryptjs';
 const LoginBox = () => {
     const navigate = useNavigate();
+    const saltRounds = 10;
     const [loginCreds, setLoginCreds] = useState({
         email: '',
         password: ''
@@ -22,6 +24,8 @@ const LoginBox = () => {
     }
     const handleLogin = async () => {
         try {
+            
+
             const res = await axios.post("http://localhost:3000/auth/login", {
                 email: loginCreds.email,
                 password: loginCreds.password

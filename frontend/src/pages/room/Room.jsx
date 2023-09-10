@@ -63,7 +63,7 @@ const Room = () => {
                     </div>
                     <div className="locationContainer">
                         <FontAwesomeIcon className="icon" icon={faLocationDot} />
-                        <p className="city">{result.city}</p>
+                        <p className="city">{result.address}</p>
                     </div>
 
                     <div className="imgContainer">

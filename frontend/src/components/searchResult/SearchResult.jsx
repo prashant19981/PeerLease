@@ -3,14 +3,10 @@ import './searchResult.css'
 import { useNavigate } from "react-router-dom";
 import { faMoneyBill1Wave,faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import useSearch from "../../hooks/useSearch";
 const SearchResult = (props) => {
-    // const [result, loading, error, refetch] = useSearch()
     const navigate = useNavigate();
     const handleClick = () => {
-        // console.log(props.id);
         navigate(`/properties/${props.id}`)
-        // alert(props.id);
     }
     return (
         <div className="detailsContainer" onClick={handleClick}>

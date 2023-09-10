@@ -42,39 +42,7 @@ const Properties = () => {
                 <Search></Search>
 
             </div>
-            {/* <div className="d-flex justify-content-center">
-                <button class="btn btn-outline-success mb-4" type="submit" >Advanced Search <span>&#x2193;</span></button>
-            </div>
-            <div className="advanceSearch">
-                <form className="d-flex flex-row align-items-center">
-                    <div class="input-group">
-                        <span class="input-group-text">Min and Max Price</span>
-                        <input name="minPrice" type="text" aria-label="First name" class="form-control" />
-                        <input name="maxPrice" type="text" aria-label="Last name" class="form-control" />
-                    </div>
-                    <div class="input-group">
-                    <span class="input-group-text ms-3">Bills</span>
-                    <select class="form-select form-select-md align-self-center" aria-label="Small select example">
-                        <option selected>Bills Included?</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                        
-                    </select>
-
-                    </div>
-                    <div class="input-group">
-                    <span class="input-group-text ms-3">Gurantor</span>
-                    <select class="form-select form-select-md align-self-center" aria-label="Small select example">
-                        <option selected>Gurantor Required?</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                        
-                    </select>
-
-                    </div>
-                    
-                </form>
-            </div> */}
+            
 
 
             <hr />

@@ -1,6 +1,6 @@
 import Users from "../models/Users.js"
 import jwt from "jsonwebtoken";
-
+import bcryptjs from 'bcryptjs';
 export const registerUser = async (req,res,next) =>{
     try{
         const newUser = new Users({
@@ -21,8 +21,13 @@ export const loginUser = async (req,res,next) =>{
 
     try{
         const user = await Users.findOne({email: req.body.email})
+        const saltRounds = 10;
+       
         if(user != null){
-            if(user.password === req.body.password){
+            console.log(user.password,req.body.password);
+            const passwordValidation = await bcryptjs.compare(req.body.password,user.password);
+            console.log(passwordValidation);
+            if(passwordValidation){
                 const token = jwt.sign({id:user._id,name:user.name},process.env.JWT_KEY);
                 res.cookie("access_token",token,{
                     httpOnly:true,

@@ -10,7 +10,12 @@ const Navbar = () => {
 
 
     function addListing() {
+        if(result.name){
         navigate("/listing");
+        }
+        else{
+            navigate("/login");
+        }
     }
     function homePage() {
         navigate("/");

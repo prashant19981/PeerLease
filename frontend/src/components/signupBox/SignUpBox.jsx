@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { faUser, faEnvelope, faUserTie, faUnlock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
+import bcryptjs from 'bcryptjs';
 const SignUpBox = () => {
     const navigate = useNavigate();
     const [signupCreds, setSignupCreds] = useState({
@@ -23,11 +23,14 @@ const SignUpBox = () => {
         })
     }
     const handleSignup = async () => {
+      
         try {
+            const saltRounds = 10;
+            const hashedPassword = await bcryptjs.hash(signupCreds.password, saltRounds);
             const res = await axios.post("http://localhost:3000/auth/register", {
                 name: signupCreds.name,
                 email: signupCreds.email,
-                password: signupCreds.password
+                password: hashedPassword
             });
             navigate("/login");
         }

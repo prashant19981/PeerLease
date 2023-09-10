@@ -68,7 +68,7 @@ const Checkout = () => {
     <>
       <div className="paymentContainer">
 
-        <h1>React Stripe and the Payment Element</h1>
+        <h1>Stripe Payment Gateway</h1>
       </div>
       <div className="paymentContainer">
         <div className="paymentProperty">
