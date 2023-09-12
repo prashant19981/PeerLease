@@ -18,7 +18,7 @@ import Stripe from 'stripe';
 dotenv.config()
 
 // const publicPath = path.join(__dirname,'../frontend/build');
-
+app.set("trust proxy", 1);
 const connection = async () => {
     try{
         await mongoose.connect(process.env.MongoCred)
