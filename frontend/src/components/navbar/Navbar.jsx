@@ -5,8 +5,9 @@ import useSearch from "../../hooks/useSearch";
 import axios from "axios";
 
 const Navbar = () => {
+    const URL = process.env.WEB_URL;
     const navigate = useNavigate();
-    const { result, loading, error, refetch } = useSearch('http://localhost:3000/users/getname');
+    const { result, loading, error, refetch } = useSearch(`${URL}/users/getname`);
 
 
     function addListing() {
