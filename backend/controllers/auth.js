@@ -33,6 +33,9 @@ export const loginUser = async (req,res,next) =>{
                     httpOnly:true,
                     domain:"peerlease-frontend.onrender.com",
                 });
+                console.log("Cookie",res.cookie);
+                console.log("Token",token);
+
                 return res.status(200).json(user)
             }
         }
