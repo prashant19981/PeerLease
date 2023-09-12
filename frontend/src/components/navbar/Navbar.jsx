@@ -5,7 +5,7 @@ import useSearch from "../../hooks/useSearch";
 import axios from "axios";
 
 const Navbar = () => {
-    const URL = process.env.WEB_URL;
+    const URL = process.env.REACT_APP_WEB_URL;
     const navigate = useNavigate();
     const { result, loading, error, refetch } = useSearch(`${URL}/users/getname`);
 
