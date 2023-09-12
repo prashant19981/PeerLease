@@ -7,6 +7,7 @@ import { faUser, faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import bcryptjs from 'bcryptjs';
 const LoginBox = () => {
+    const URL = process.env.WEB_URL;
     const navigate = useNavigate();
     const saltRounds = 10;
     const [loginCreds, setLoginCreds] = useState({
@@ -26,7 +27,7 @@ const LoginBox = () => {
         try {
             
 
-            const res = await axios.post("http://localhost:3000/auth/login", {
+            const res = await axios.post(`${URL}/auth/login`, {
                 email: loginCreds.email,
                 password: loginCreds.password
             }, {

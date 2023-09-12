@@ -9,7 +9,6 @@ import { useContext } from "react";
 import { SearchPageContext } from "../../context/SearchPageContext";
 const Properties = () => {
     const { university, city, date,bills,gurantor } = useContext(SearchPageContext);
-    console.log(bills);
     const searchQuery = `http://localhost:3000/properties/search?city=${city}&university=${university}&date=${date}&bills=${bills}&gurantor=${gurantor}`;
     const { result, loading, error, refetch } = useSearch(searchQuery);
     

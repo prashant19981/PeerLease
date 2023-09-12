@@ -7,12 +7,17 @@ import { faUser, faEnvelope, faUserTie, faUnlock } from '@fortawesome/free-solid
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import bcryptjs from 'bcryptjs';
 const SignUpBox = () => {
+    const emailPatterns = /^[a-zA-Z0-9._-]+@student\.bham\.ac\.uk$/;
     const navigate = useNavigate();
+    const [fieldError, setFieldError] = useState('');
     const [signupCreds, setSignupCreds] = useState({
         name: '',
         email: '',
         password: ''
     })
+    const validateEmailAddress = (email) =>{
+        return emailPatterns.test(email);
+    }
     function handleChange(event) {
         const { name, value } = event.target;
         setSignupCreds((prevData) => {
@@ -24,6 +29,14 @@ const SignUpBox = () => {
     }
     const handleSignup = async () => {
       
+        if(!signupCreds.name.trim() || !signupCreds.email.trim() || !signupCreds.password.trim()){
+            setFieldError('All fields are required')
+        }
+        else if(!validateEmailAddress(signupCreds.email)){
+            setFieldError('Invalid email format')
+        }
+        else{
+            setFieldError('');
         try {
             const saltRounds = 10;
             const hashedPassword = await bcryptjs.hash(signupCreds.password, saltRounds);
@@ -37,6 +50,7 @@ const SignUpBox = () => {
         catch (err) {
             console.log(err);
         }
+    }
     }
     return (
         <div className="loginContainer">
@@ -83,32 +97,7 @@ const SignUpBox = () => {
 
                 </input>
                 </div>
-
-
-                {/* <input name="name"
-                    type="text"
-                    placeholder="Name"
-                    value={signupCreds.name}
-                    onChange={handleChange}>
-
-                </input>
-                <input name="email"
-                    type="email"
-                    placeholder="Email"
-                    value={signupCreds.email}
-                    onChange={handleChange}>
-
-                </input>
-                <input name="password"
-                    type="password"
-                    placeholder="Password"
-                    value={signupCreds.password}
-                    onChange={handleChange}>
-
-                </input> */}
-                {/* <button type="button"
-                    onClick={handleSignup}
-                    class="btn btn-outline-primary loginButton">Register</button> */}
+                {fieldError && <p style={{color: 'red'}}>{fieldError}</p>}
                 <button onClick={handleSignup} type="button" class="btn btn-outline-primary loginButton">Register</button>
             </div>
             

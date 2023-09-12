@@ -50,7 +50,7 @@ const ReservationBox = (props) => {
                     setButtonText(res.data.status);
                     }
                 }
-                // if(res.data.status === "Approved")
+                
                 
             }
             catch (e) {

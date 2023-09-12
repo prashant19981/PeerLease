@@ -39,8 +39,7 @@ const Listing = () => {
         
     };
     const handleSubmit = async (event) => {
-        setLoadingAnimation(true);
-        console.log("Working"); 
+        setLoadingAnimation(true); 
         event.preventDefault();
         const formData = new FormData();
         
@@ -64,10 +63,6 @@ const Listing = () => {
         formData.append('gurantor', event.target.gurantor.value)
         formData.append('deposit', event.target.deposit.value)
         
-        
-        // for( const entry of formData.entries()){
-        //     console.log(entry[0], entry[1]);
-        // }
         try {
             const res = await axios.post("http://localhost:3000/properties/", formData,{
                 withCredentials:true

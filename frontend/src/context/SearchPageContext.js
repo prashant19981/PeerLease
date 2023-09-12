@@ -1,7 +1,6 @@
 import { createContext, useReducer } from "react"
 
 const INIT = {
-    // startDate:[],
     university:'',
     city:undefined,
     date:'',
