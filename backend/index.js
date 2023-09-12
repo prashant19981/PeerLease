@@ -34,7 +34,7 @@ const connection = async () => {
 mongoose.connection.on("disconnected",()=>{
     console.log("Disconnected from the Database")
 })
-app.use(cors({origin:'http://localhost:3001',credentials: true}));
+app.use(cors({origin:process.env.URL,credentials: true}));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/auth",authRoute);
