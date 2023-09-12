@@ -31,7 +31,8 @@ export const loginUser = async (req,res,next) =>{
                 const token = jwt.sign({id:user._id,name:user.name},process.env.JWT_KEY);
                 res.cookie("access_token",token,{
                     httpOnly:true,
-                    domain:"peerlease-frontend.onrender.com",
+                    secure: true,
+                    sameSite: 'None',
                 });
                 console.log("Cookie",res.cookie);
                 console.log("Token",token);
