@@ -3,7 +3,8 @@ import Navbar from "../../components/navbar/Navbar";
 import ReservationContainer from "../../components/myReservation/ReservationContainer";
 import useSearch from "../../hooks/useSearch";
 const MyReservation = () => {
-    const { result, loading, error, refetch } = useSearch('http://localhost:3000/users/my-reservations');
+    const URL = process.env.REACT_APP_WEB_URL;
+    const { result, loading, error, refetch } = useSearch(`${URL}/users/my-reservations`);
     return (
         <div>
             <Navbar></Navbar>

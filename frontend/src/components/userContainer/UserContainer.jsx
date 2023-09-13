@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import './userContainer.css';
 import axios from "axios";
 const UserContainer = (props) => {
+    const URL = process.env.REACT_APP_WEB_URL;
     const [isApproved, setIsApproved] = useState(false);
     const [status,setStatus] = useState('Requested');
     
     const  handleApprove = async () =>{
         try{
             
-            const res = await axios.post(`http://localhost:3000/properties/${props.userId}/${props.propId}/approve`,null, {
+            const res = await axios.post(`${URL}/${props.userId}/${props.propId}/approve`,null, {
                 withCredentials: true,
             }
             );
@@ -25,7 +26,7 @@ const UserContainer = (props) => {
     const  handleReject = async () =>{
         try{
             
-            const res = await axios.post(`http://localhost:3000/properties/${props.userId}/${props.propId}/reject`,null, {
+            const res = await axios.post(`${URL}/properties/${props.userId}/${props.propId}/reject`,null, {
                 withCredentials: true,
             }
             );
@@ -45,7 +46,7 @@ const UserContainer = (props) => {
 
             try {
                 //ADD user parameter as well
-                const res = await axios.get(`http://localhost:3000/request/${props.userId}/${props.propId}/status`);
+                const res = await axios.get(`${URL}/request/${props.userId}/${props.propId}/status`);
                 console.log(res.data);
                 
                 setStatus(res.data);

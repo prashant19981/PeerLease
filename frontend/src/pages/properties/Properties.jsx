@@ -8,8 +8,9 @@ import useSearch from "../../hooks/useSearch";
 import { useContext } from "react";
 import { SearchPageContext } from "../../context/SearchPageContext";
 const Properties = () => {
+    const URL = process.env.REACT_APP_WEB_URL;
     const { university, city, date,bills,gurantor } = useContext(SearchPageContext);
-    const searchQuery = `http://localhost:3000/properties/search?city=${city}&university=${university}&date=${date}&bills=${bills}&gurantor=${gurantor}`;
+    const searchQuery = `${URL}/properties/search?city=${city}&university=${university}&date=${date}&bills=${bills}&gurantor=${gurantor}`;
     const { result, loading, error, refetch } = useSearch(searchQuery);
     
     // const {city} = location.state.formValues;

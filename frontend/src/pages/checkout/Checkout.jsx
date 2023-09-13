@@ -8,15 +8,16 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Checkout = () => {
+  const URL = process.env.REACT_APP_WEB_URL;
   const { id } = useParams();
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
-  const { result, loading, error, refetch } = useSearch(`http://localhost:3000/properties/${id}`);
+  const { result, loading, error, refetch } = useSearch(`${URL}/properties/${id}`);
 
   useEffect(() => {
     const getStripe = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/config");
+        const res = await axios.get(`${URL}/config`);
         const publishableKey = res.data.publishableKey;
 
         setStripePromise(loadStripe(publishableKey));
@@ -36,7 +37,7 @@ const Checkout = () => {
   useEffect(() => {
     const createIntent = async () => {
       try {
-        const res = await axios.post("http://localhost:3000/create-payment-intent");
+        const res = await axios.post(`${URL}create-payment-intent`);
         var clientSecret = res.data.clientSecret;
         setClientSecret(clientSecret);
         console.log(clientSecret);

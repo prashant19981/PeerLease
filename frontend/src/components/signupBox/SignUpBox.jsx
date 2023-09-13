@@ -7,6 +7,7 @@ import { faUser, faEnvelope, faUserTie, faUnlock } from '@fortawesome/free-solid
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import bcryptjs from 'bcryptjs';
 const SignUpBox = () => {
+    const URL = process.env.REACT_APP_WEB_URL;
     const emailPatterns = /^[a-zA-Z0-9._-]+@student\.bham\.ac\.uk$/;
     const navigate = useNavigate();
     const [fieldError, setFieldError] = useState('');
@@ -40,7 +41,7 @@ const SignUpBox = () => {
         try {
             const saltRounds = 10;
             const hashedPassword = await bcryptjs.hash(signupCreds.password, saltRounds);
-            const res = await axios.post("http://localhost:3000/auth/register", {
+            const res = await axios.post(`${URL}/auth/register`, {
                 name: signupCreds.name,
                 email: signupCreds.email,
                 password: hashedPassword

@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const ReservationBox = (props) => {
+    const URL = process.env.REACT_APP_WEB_URL;
     const [isReserved, setIsReserved] = useState(false);
     const [isApproved, setIsApproved] = useState(false);
     const [loadingAnimation, setLoadingAnimation] = useState(false);
@@ -18,7 +19,7 @@ const ReservationBox = (props) => {
     const handleReserve = async () => {
         try {
             setLoadingAnimation(true);
-            const res = await axios.post(`http://localhost:3000/request/${props.id}/reserve`, null, {
+            const res = await axios.post(`${URL}/${props.id}/reserve`, null, {
                 withCredentials: true,
             }
             );
@@ -37,7 +38,7 @@ const ReservationBox = (props) => {
 
 
             try {
-                const res = await axios.get(`http://localhost:3000/request/${props.id}/check-reserve`, {
+                const res = await axios.get(`${URL}/${props.id}/check-reserve`, {
                     withCredentials: true,
                 });
                 console.log(res.data);

@@ -9,16 +9,16 @@ import axios from "axios";
 import ReservationBox from "../../components/reservationBox/ReservationBox";
 
 const Room = () => {
-
+    const URL = process.env.REACT_APP_WEB_URL;
     const { id } = useParams();
-    const { result, loading, error, refetch } = useSearch(`http://localhost:3000/properties/${id}`);
+    const { result, loading, error, refetch } = useSearch(`${URL}/properties/${id}`);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     useEffect(() => {
         const checkLogin = async () => {
 
 
             try {
-                const res = await axios.get("http://localhost:3000/users/checklogin", {
+                const res = await axios.get(`${URL}/users/checklogin`, {
                     withCredentials: true,
                 });
                 // console.log(res);

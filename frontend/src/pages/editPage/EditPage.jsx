@@ -10,9 +10,10 @@ import { DateRange } from 'react-date-range';
 import { useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
 const EditPage = () => {
+    const URL = process.env.REACT_APP_WEB_URL;
     const navigate = useNavigate();
     const { id } = useParams();
-    const { result, loading, error, refetch } = useSearch(`http://localhost:3000/properties/${id}`);
+    const { result, loading, error, refetch } = useSearch(`${URL}/properties/${id}`);
     const [uploadedFile, setUploadedFile] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
     const [showCalender, setShowCalender] = useState(false);
@@ -72,7 +73,7 @@ const EditPage = () => {
         //     console.log(entry[0], entry[1]);
         // }
         try {
-            const res = await axios.post(`http://localhost:3000/properties/${id}/update`, formData,{
+            const res = await axios.post(`${URL}/properties/${id}/update`, formData,{
                 withCredentials:true
             })
             

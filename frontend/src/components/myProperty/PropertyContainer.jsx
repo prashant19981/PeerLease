@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button, Modal } from 'antd';
 import { useNavigate } from "react-router-dom";
 const PropertyContainer = (props) => {
+    const URL = process.env.REACT_APP_WEB_URL;
     const navigate = useNavigate();
     const [requested, setRequested] = useState(false);
     const [users, setUsers] = useState([]);
@@ -24,7 +25,7 @@ const PropertyContainer = (props) => {
         
         setConfirmLoading(true);
         try{
-            const res = await axios.post(`http://localhost:3000/properties/${props.prop}/delete`,null,{
+            const res = await axios.post(`${URL}/${props.prop}/delete`,null,{
                 withCredentials:true
             })
             setConfirmLoading(false);

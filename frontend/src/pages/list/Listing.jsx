@@ -9,7 +9,7 @@ import { DateRange } from 'react-date-range';
 import { useNavigate } from "react-router-dom";
 const Listing = () => {
     const navigate = useNavigate();
-    
+    const URL = process.env.REACT_APP_WEB_URL;
     const [uploadedFile, setUploadedFile] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
     const [showCalender, setShowCalender] = useState(false);
@@ -64,7 +64,7 @@ const Listing = () => {
         formData.append('deposit', event.target.deposit.value)
         
         try {
-            const res = await axios.post("http://localhost:3000/properties/", formData,{
+            const res = await axios.post(`${URL}/properties/`, formData,{
                 withCredentials:true
             })
             

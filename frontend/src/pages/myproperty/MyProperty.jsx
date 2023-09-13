@@ -5,7 +5,8 @@ import './myProperty.css';
 import useSearch from "../../hooks/useSearch";
 import UserContainer from "../../components/userContainer/UserContainer";
 const MyProperty = () => {
-    const { result, loading, error, refetch } = useSearch('http://localhost:3000/users/my-property');
+    const URL = process.env.REACT_APP_WEB_URL;
+    const { result, loading, error, refetch } = useSearch(`${URL}/users/my-property`);
     return (
         <div>
             <Navbar></Navbar>
