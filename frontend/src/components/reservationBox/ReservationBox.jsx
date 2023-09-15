@@ -38,7 +38,7 @@ const ReservationBox = (props) => {
 
 
             try {
-                const res = await axios.get(`${URL}/${props.id}/check-reserve`, {
+                const res = await axios.get(`${URL}/request/${props.id}/check-reserve`, {
                     withCredentials: true,
                 });
                 console.log(res.data);
