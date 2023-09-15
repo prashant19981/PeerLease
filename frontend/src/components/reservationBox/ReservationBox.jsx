@@ -19,7 +19,7 @@ const ReservationBox = (props) => {
     const handleReserve = async () => {
         try {
             setLoadingAnimation(true);
-            const res = await axios.post(`${URL}/${props.id}/reserve`, null, {
+            const res = await axios.post(`${URL}/request/${props.id}/reserve`, null, {
                 withCredentials: true,
             }
             );

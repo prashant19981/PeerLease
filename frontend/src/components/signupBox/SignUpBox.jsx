@@ -50,6 +50,7 @@ const SignUpBox = () => {
         }
         catch (err) {
             console.log(err);
+            setFieldError(err);
         }
     }
     }
