@@ -60,7 +60,7 @@ const PropertyContainer = (props) => {
         try {
 
 
-            const res = await axios.get(`http://localhost:3000/properties/${props.prop}/requests`);
+            const res = await axios.get(`${URL}/properties/${props.prop}/requests`);
             setUsers(res.data);
 
         }
