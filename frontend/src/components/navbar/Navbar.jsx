@@ -45,7 +45,7 @@ const Navbar = () => {
 
         }
         catch (e) {
-            // console.log(e);
+            console.log(e);
         }
 
     }
@@ -66,8 +66,7 @@ const Navbar = () => {
 
                             <a class="nav-link active navbar-elements" aria-current="page" href="#" onClick={handleMyProperties}>My Properties</a>
                             <a class="nav-link navbar-elements" href="#" onClick={handleMyReservations}>My Reservations</a>
-                            {/* <a class="nav-link navbar-elements" href="#">Pricing</a>
-                            <a class="nav-link navbar-elements">Disabled</a> */}
+                            
 
                         </div>
                     )
@@ -84,17 +83,7 @@ const Navbar = () => {
                                 <>
                                     <a class="nav-link navbar-elements" href="#">Hi {result.name}</a>
                                     <button class="btn btn-outline-success" type="submit" onClick={handleLogout}>Logout</button>
-                                    {/* <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle navbar-elements" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Dropdown
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item navbar-elements" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><hr class="dropdown-divider"/></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
-                                    </li> */}
+                                    
 
                                 </>
 

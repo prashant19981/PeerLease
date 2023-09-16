@@ -5,11 +5,11 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { faUser, faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import bcryptjs from 'bcryptjs';
 const LoginBox = () => {
     const URL = process.env.REACT_APP_WEB_URL;
     const navigate = useNavigate();
     const saltRounds = 10;
+    const [fieldError, setFieldError] = useState('');
     const [loginCreds, setLoginCreds] = useState({
         email: '',
         password: ''

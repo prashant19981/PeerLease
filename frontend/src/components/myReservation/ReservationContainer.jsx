@@ -18,12 +18,6 @@ const ReservationContainer = (props) => {
                     className="srImg" />
             </div>
 
-            {/* <div className="srInfo">
-                <h3>{props.name}</h3>
-                <h4>{props.type}</h4>
-                <h4>{props.uni}</h4>
-
-            </div> */}
             <div className="propertyInfo">
                     <h4 className="mt-3 mb-3">Name: {props.name}</h4>
                     <p>University: {props.uni}</p>

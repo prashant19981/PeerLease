@@ -35,7 +35,7 @@ const Checkout = () => {
   useEffect(() => {
     const createIntent = async () => {
       try {
-        const res = await axios.post(`${URL}create-payment-intent`);
+        const res = await axios.post(`${URL}/create-payment-intent`);
         var clientSecret = res.data.clientSecret;
         setClientSecret(clientSecret);
         console.log(clientSecret);

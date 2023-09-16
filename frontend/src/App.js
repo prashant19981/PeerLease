@@ -30,9 +30,7 @@ function App() {
         <Route path='/success' element={<Success/>}/>
         <Route path='/checkout/:id' element={<Checkout/>}/>
         <Route path='/edit/:id' element={<EditPage/>}/>
-        <Route path='/payment' element={<PaymentSuccess/>}/>
-        
-        
+        <Route path='/payment' element={<PaymentSuccess/>}/>       
       </Routes>
 
     </BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; // Reverenced from React hook. Found at: https://legacy.reactjs.org/docs/hooks-intro.html
 import Navbar from "../../components/navbar/Navbar";
 import SearchResult from "../../components/searchResult/SearchResult";
 import Header from "../../components/header/Header";

@@ -5,8 +5,8 @@ import { faCity, faBuildingColumns, faBed, faCalendarDays } from '@fortawesome/f
 import "./search.css"
 import { useNavigate } from "react-router-dom";
 import { SearchPageContext } from "../../context/SearchPageContext";
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css'; 
 function Search() {
   const navigate = useNavigate();
   const { dispatch } = useContext(SearchPageContext)

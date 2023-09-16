@@ -3,8 +3,8 @@ import './room.css'
 import Navbar from "../../components/navbar/Navbar";
 import { useParams } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
-import { faLocationDot, faSink, faHouse, faBasketShopping, faBed, faFireFlameCurved } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLocationDot, faSink, faHouse, faBasketShopping, faBed, faFireFlameCurved } from '@fortawesome/free-solid-svg-icons'; //Referenced from Fontawesome. Found at: https://fontawesome.com/docs
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" //Referenced from Fontawesome. Found at: https://fontawesome.com/docs
 import axios from "axios";
 import ReservationBox from "../../components/reservationBox/ReservationBox";
 
@@ -72,7 +72,6 @@ const Room = () => {
                     </div>
                     <hr></hr>
                     <div className="accomodationName">
-                        {/* <h3>Accomodation Details</h3> */}
                     </div>
                     <div className="hotelDescContainer">
 
@@ -104,14 +103,6 @@ const Room = () => {
                                         <span><p>{value}</p></span>
                                     </>
                                 )}
-                                {/* <span><FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
-                            <span><p>Bike Storage</p></span>
-                            <span><FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
-                            <span><p>Wifi</p></span>
-                            <span> <FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
-                            <span> <p>TV</p></span>
-                            <span> <FontAwesomeIcon className="icon" icon={faFireFlameCurved} /></span>
-                            <span> <p>Dryer</p></span> */}
                             </div>
                         </div>
                     }

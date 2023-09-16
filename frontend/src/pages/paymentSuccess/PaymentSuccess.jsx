@@ -1,6 +1,6 @@
 import React from 'react';
 import './paymentSuccess.css';
-import { Button, Result } from 'antd';
+import { Button, Result } from 'antd'; //Referenced from Ant Design documentaiton. Found at: https://ant.design/docs/react/introduce
 import { useNavigate } from "react-router-dom";
 
 

@@ -2,12 +2,12 @@ import React, { useState} from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import './editPage.css'
-import { useParams } from "react-router-dom";
-import axios from 'axios';
+import { useParams } from "react-router-dom"; // Referenced from React router. Found at: https://reactrouter.com/en/main/hooks/use-params
+import axios from 'axios'; //Referenced from npm react documentation. Found at: https://www.npmjs.com/package/axios
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css'; 
 import { DateRange } from 'react-date-range';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; //Referenced from React Router. Found at: https://reactrouter.com/en/main/components/navigate
 import useSearch from "../../hooks/useSearch";
 const EditPage = () => {
     const URL = process.env.REACT_APP_WEB_URL;
@@ -64,6 +64,7 @@ const EditPage = () => {
         formData.append('deposit', event.target.deposit.value)
         
         try {
+            ////Referenced from npm react documentation. Found at: https://www.npmjs.com/package/axios
             const res = await axios.post(`${URL}/properties/${id}/update`, formData,{
                 withCredentials:true
             })
@@ -84,7 +85,6 @@ const EditPage = () => {
             <div>
                 <Navbar></Navbar>
                 <Header></Header>
-                {/* <h1>Loading...</h1> */}
                 <div class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
                         <span class="visually-hidden">Loading...</span>
@@ -93,8 +93,6 @@ const EditPage = () => {
             </div>
         );
     }
-    // console.log(result);
-    // document.getElementById("name").value=result.name;
 
 
     return (
@@ -103,7 +101,7 @@ const EditPage = () => {
             <Header></Header>
             <div className="formContainer">
                 <h1>Edit Page</h1>
-
+            
                 <div className="formContainer">
                     <form onSubmit={handleSubmit}>
                         

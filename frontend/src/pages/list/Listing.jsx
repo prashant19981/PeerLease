@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; // Refrenced from React documentation. Found at: https://legacy.reactjs.org/docs/hooks-state.html
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import './listing.css'
 import axios from 'axios';
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRange } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css'; 
+import { DateRange } from 'react-date-range'; // Referenced from NPM date picker documentation. Found at: https://www.npmjs.com/package/react-date-range
 import { useNavigate } from "react-router-dom";
 const Listing = () => {
     const navigate = useNavigate();

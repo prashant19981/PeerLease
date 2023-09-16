@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom"; // Taken from NPM router dom documentation. Found at:https://www.npmjs.com/package/react-router-dom
 import './success.css';
 const Success = () => {
     const location = useLocation();
