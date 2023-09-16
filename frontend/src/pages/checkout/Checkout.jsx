@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Checkout = () => {
+  // Refrenced from Stripe documentation. Found at: https://stripe.com/docs/stripe-js/react
   const URL = process.env.REACT_APP_WEB_URL;
   const { id } = useParams();
   const [stripePromise, setStripePromise] = useState(null);
@@ -23,17 +24,14 @@ const Checkout = () => {
         setStripePromise(loadStripe(publishableKey));
         console.log(stripePromise);
       }
-      // fetch("/config").then(async (r) => {
-      //   const { publishableKey } = await r.json();
-
-      // });
+   
       catch (e) {
         console.log(e);
       }
     }
     getStripe();
   }, []);
-
+// Refrenced from Stripe documentation. Found at: https://stripe.com/docs/stripe-js/react
   useEffect(() => {
     const createIntent = async () => {
       try {
@@ -46,13 +44,6 @@ const Checkout = () => {
         console.log(e);
       }
     }
-    // fetch("/create-payment-intent", {
-    //   method: "POST",
-    //   body: JSON.stringify({}),
-    // }).then(async (result) => {
-    //   var { clientSecret } = await result.json();
-    //   setClientSecret(clientSecret);
-    // });
     createIntent();
   }, []);
   if (loading) {
@@ -64,7 +55,7 @@ const Checkout = () => {
       </div>
     );
   }
-
+// Refrenced from Stripe documentation. Found at: https://stripe.com/docs/stripe-js/react
   return (
     <>
       <div className="paymentContainer">

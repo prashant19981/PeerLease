@@ -4,8 +4,8 @@ import Header from "../../components/header/Header";
 import './editPage.css'
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css'; 
 import { DateRange } from 'react-date-range';
 import { useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
@@ -48,11 +48,6 @@ const EditPage = () => {
         console.log("Working"); 
         event.preventDefault();
         const formData = new FormData();
-        
-        // for (const file of uploadedFile) {
-        //     formData.append('imageURL', file);
-        // }
-       
         formData.append('name', event.target.name.value)
         formData.append('type', event.target.type.value)
         formData.append('city', event.target.city.value)
@@ -68,10 +63,6 @@ const EditPage = () => {
         formData.append('gurantor', event.target.gurantor.value)
         formData.append('deposit', event.target.deposit.value)
         
-        
-        // for( const entry of formData.entries()){
-        //     console.log(entry[0], entry[1]);
-        // }
         try {
             const res = await axios.post(`${URL}/properties/${id}/update`, formData,{
                 withCredentials:true

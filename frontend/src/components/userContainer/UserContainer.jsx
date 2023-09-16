@@ -9,7 +9,7 @@ const UserContainer = (props) => {
     const  handleApprove = async () =>{
         try{
             
-            const res = await axios.post(`${URL}/${props.userId}/${props.propId}/approve`,null, {
+            const res = await axios.post(`${URL}/properties/${props.userId}/${props.propId}/approve`,null, {
                 withCredentials: true,
             }
             );
